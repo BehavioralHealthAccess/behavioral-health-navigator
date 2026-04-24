@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Large or raw data
+# Keep raw source data out of GitHub. Document sources in data/README.md instead.
+data/raw/
+data/interim/
+data/cache/
+*.zip
+*.7z
+*.gz
+*.tar
+*.tar.gz
+*.db
+*.sqlite
+*.sqlite3
+
+# Large generated data by default
+# Commit only intentionally small demo/sample files.
+data/processed/*.csv
+data/processed/*.parquet
+data/samples/*.csv
+
+# Allow README placeholders in data folders
+!data/README.md
+!data/processed/.gitkeep
+!data/samples/.gitkeep
+
+# App/runtime artifacts
+.streamlit/secrets.toml
+logs/
+*.log
