@@ -33,16 +33,11 @@ data/cache/
 *.sqlite
 *.sqlite3
 
-# Large generated data by default
-# Commit only intentionally small demo/sample files.
-data/processed/*.csv
-data/processed/*.parquet
-data/samples/*.csv
-
-# Allow README placeholders in data folders
-!data/README.md
-!data/processed/.gitkeep
-!data/samples/.gitkeep
+# Large generated artifacts
+# Small demo/sample CSV files are allowed, but full raw exports should stay out.
+*.pkl
+*.joblib
+*.feather
 
 # App/runtime artifacts
 .streamlit/secrets.toml
