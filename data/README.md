@@ -37,7 +37,7 @@ The GitHub-safe final review extract is:
 data/processed/final_nj_facility_sample.csv
 ```
 
-That file contains 213 New Jersey facility rows, decoded service descriptions, payment/funding signals, recovery and ancillary support fields, and K-Means tier labels. It is a processed extract suitable for prototype review, not a raw source file.
+That file contains 213 New Jersey facility rows, decoded service descriptions, payment/funding signals, recovery and ancillary support fields, and K-Means-derived tier labels. It is a processed extract suitable for prototype review, not a raw source file.
 
 ## Current Pipeline Summary
 
@@ -77,7 +77,7 @@ What it provides:
 Main use in this project:
 
 - Primary facility-level source for the navigator.
-- Main input for service-fit filters, K-Means care-bundle tiering, and prototype display.
+- Main input for service-fit filters, precomputed K-Means care-bundle tier labels, and prototype display.
 
 Known limitations:
 

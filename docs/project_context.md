@@ -23,7 +23,7 @@ The tool does not claim real-time appointment availability. It does not book app
 
 ## Final Project Story
 
-We built a behavioral health access navigator using public New Jersey data. The system helps users narrow and interpret facility options by service fit, location, payment or insurance signals, source confidence, and a K-Means care-bundle tier that summarizes facility service complexity.
+We built a behavioral health access navigator using public New Jersey data. The system helps users narrow and interpret facility options by service fit, location, payment or insurance signals, source confidence, and a precomputed K-Means care-bundle tier that summarizes facility service complexity.
 
 The honest value of the project is not that it knows everything. The value is that it makes fragmented public data more usable, explainable, and bounded.
 
@@ -65,7 +65,7 @@ Use cleaned and decoded SAMHSA National Mental Health Directory facility data to
 
 Modeling direction:
 
-- Use K-Means clustering, not KNN, to group facilities into care-bundle or service-complexity tiers.
+- Use K-Means clustering, not KNN, in the tiering notebook to group facilities into care-bundle or service-complexity tiers.
 - Engineer features from service-related fields, such as service setting, type of care, treatment approaches, recovery support, emergency services, payment/funding, age groups, and ancillary services.
 - Use tools such as pandas, scikit-learn, MultiLabelBinarizer, matplotlib, and seaborn where useful.
 - Use elbow and/or silhouette plots to justify the number of clusters.
@@ -75,6 +75,7 @@ Navigator direction:
 
 - Use simple filtering or rule-based ranking for care need, location, payment/insurance, and service fit.
 - Add the K-Means tier label as an interpretation layer.
+- Do not claim that the Streamlit prototype retrains K-Means or runs semantic embeddings at runtime; it currently loads precomputed tier labels and applies deterministic filter/match scoring.
 - Add source-confidence labels where available to communicate provenance and uncertainty.
 
 ## Terminology Correction
@@ -82,6 +83,8 @@ Navigator direction:
 Use "K-Means" consistently for the clustering model.
 
 Do not describe the clustering model as KNN. KNN is a supervised nearest-neighbor method for classification or regression. K-Means is an unsupervised clustering method.
+
+Also distinguish tiering from ranking. K-Means applies to the care-bundle tier labels. The prototype's result ordering comes from simple deterministic match scoring, not K-Means and not KNN.
 
 ## Suggested Repo Layout
 

@@ -50,7 +50,7 @@ The prototype does not:
 ## Useful Questions
 
 - Does the documentation explain why SAMHSA National Mental Health Directory 2024 is the completed primary source?
-- Does the project distinguish K-Means tiering from KNN?
+- Does the project distinguish notebook modeling, precomputed K-Means tier labels, and the prototype's runtime filter/scoring logic?
 - Does the report explain what the tier labels do and do not mean?
 - Does the app run from the committed 213-row extract?
 - Does the data documentation explain why large raw files are not committed to GitHub?

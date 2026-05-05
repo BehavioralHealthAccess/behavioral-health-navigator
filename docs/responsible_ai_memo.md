@@ -10,7 +10,7 @@ The tool is meant to make public facility directory data easier to search and in
 
 - Filters and ranks New Jersey behavioral health facilities using decoded public directory fields.
 - Shows service setting, type of care, payment/funding signals, age-group fields, and ancillary supports where available.
-- Adds a K-Means care-bundle tier that summarizes service-pattern complexity.
+- Displays a precomputed K-Means care-bundle tier that summarizes service-pattern complexity.
 - Communicates source and scope limits through source-confidence language.
 
 ## What The System Must Not Claim

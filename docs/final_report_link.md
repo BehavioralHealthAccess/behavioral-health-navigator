@@ -17,6 +17,7 @@ The final report should align with this repository's current data story:
 - Primary completed source: SAMHSA National Mental Health Directory 2024.
 - Final GitHub data extract: `data/processed/final_nj_facility_sample.csv`.
 - Model framing: K-Means care-bundle tiering, not KNN.
+- Prototype framing: deterministic filters and keyword/payment/query match scoring at runtime, not live clustering or embedding similarity.
 - Prototype framing: bounded navigation support, not clinical recommendation or real-time availability.
 - Advisor name spelling: Dr. Andrei Nikiforov.
 
@@ -36,7 +37,7 @@ The final report should align with this repository's current data story:
 
 The final GitHub review extract contains 213 New Jersey behavioral health facility records derived from the team's processed SAMHSA National Mental Health Directory 2024 workflow. The extract keeps decoded service fields that are useful for navigation, including facility type, type of care, service setting, treatment approaches, emergency services, payment/funding signals, recovery support, age groups accepted, and ancillary services.
 
-The K-Means tiering workflow assigns each facility to one of five plain-language care-bundle tiers. In the final New Jersey extract, the tier distribution is:
+The K-Means tiering workflow assigns each facility to one of five plain-language care-bundle tiers. These labels are stored in the final New Jersey extract as precomputed `cluster_label` and `tier_name` fields. In the extract, the tier distribution is:
 
 | Tier | Facilities |
 | --- | ---: |
@@ -46,7 +47,7 @@ The K-Means tiering workflow assigns each facility to one of five plain-language
 | Specialized Chronic Care | 19 |
 | Comprehensive Support Hub | 16 |
 
-The Streamlit prototype uses this processed extract to let a navigator filter facilities by care need, service setting, payment/funding signal, city, and tier. It also provides simple match signals so the user can see why a facility appeared in the results. The prototype is intentionally bounded: it demonstrates search, filtering, and interpretation of public facility data, but it does not confirm appointment availability, insurance acceptance, clinical fit, or real-time service status.
+The Streamlit prototype uses this processed extract to let a navigator filter facilities by care need, service setting, payment/funding signal, city, and tier. It also provides simple keyword/payment/query match signals so the user can see why a facility appeared in the results. The prototype is intentionally bounded: it demonstrates search, filtering, and interpretation of public facility data, but it does not rerun K-Means, KNN, or embeddings at runtime and does not confirm appointment availability, insurance acceptance, clinical fit, or real-time service status.
 
 ## Ready-To-Paste Interpretation Language
 

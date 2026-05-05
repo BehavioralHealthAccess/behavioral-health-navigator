@@ -36,7 +36,7 @@ The intended first users are care coordinators, social workers, discharge planne
 
 ## Final Project Story
 
-We built a behavioral health access navigator using public New Jersey behavioral health data. The system helps users narrow and interpret facility options by service fit, location, payment or insurance signals, source confidence, and a K-Means care-bundle tier that summarizes facility service complexity.
+We built a behavioral health access navigator using public New Jersey behavioral health data. The system helps users narrow and interpret facility options by service fit, location, payment or insurance signals, source confidence, and a precomputed K-Means care-bundle tier that summarizes facility service complexity.
 
 This is a decision-support prototype, not a clinical authority or booking system.
 
@@ -89,15 +89,15 @@ The full raw workbook and larger intermediate files are not included in this rep
 
 ## Modeling Summary
 
-The project uses K-Means clustering, not KNN, for facility tiering.
+The repository includes two different modeling ideas, and they should not be conflated:
 
-K-Means is an unsupervised method that groups facilities by patterns in service-related fields. The tier labels summarize service bundles and service complexity. They are not quality scores, referral decisions, or clinical recommendations.
+- Facility tiering: `notebooks/Modeling.ipynb` trains K-Means on binarized service indicators and assigns five plain-language care-bundle tiers. The committed New Jersey extract stores those outputs as precomputed `cluster_label` and `tier_name` fields. `notebooks/final_facility_tier_model.ipynb` is a smaller runnable K-Means demonstration using the committed demo CSV.
+- Ranking exploration: `notebooks/Modeling.ipynb` also explores sentence-transformer cosine similarity plus rule-based scoring for candidate ranking.
+- Prototype runtime: `app/streamlit_app.py` does not rerun K-Means, KNN, or embedding similarity. It loads the committed 213-row extract, applies deterministic filters and keyword/payment/query match scores, and displays the precomputed tier label.
 
-The navigator can combine:
+Use "K-Means tier labels" for the care-bundle clustering work. Do not describe the project as using KNN. KNN is a supervised nearest-neighbor method, while K-Means is the unsupervised clustering method used for the tier labels.
 
-- rule-based filtering or ranking for location, care need, payment, and service fit
-- source-confidence labels that describe provenance and data limitations
-- K-Means tier labels that summarize facility service complexity
+The tier labels summarize service bundles and service complexity. They are not quality scores, referral decisions, or clinical recommendations.
 
 ## Responsible Use
 

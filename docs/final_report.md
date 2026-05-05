@@ -16,7 +16,7 @@
 | Project walkthrough | `docs/project_walkthrough.md` | One-page map of the repository. |
 | Report | `docs/final_report.docx and docs/final_report.md` | Polished report draft and GitHub-readable text version. |
 | Prototype | `app/streamlit_app.py` | Streamlit app using the committed New Jersey extract. |
-| Final data extract | `data/processed/final_nj_facility_sample.csv` | 213 New Jersey facility records with decoded service fields and K-Means tiers. |
+| Final data extract | `data/processed/final_nj_facility_sample.csv` | 213 New Jersey facility records with decoded service fields and K-Means-derived tiers. |
 | Data documentation | `data/README.md and docs/data_pipeline.md` | Source lineage, processing steps, and limitations. |
 | Notebooks | `notebooks/SAMHSA.ipynb and notebooks/Modeling.ipynb` | Drive-origin cleaning, filtering, ranking, and modeling work. |
 | Responsible AI | `docs/responsible_ai_memo.md` | Intended use, misuse risks, and human override rules. |
@@ -36,7 +36,7 @@
 
 The Behavioral Health Access Navigator is a decision-support prototype designed to help care coordinators, social workers, discharge planners, and community health navigators interpret public behavioral health facility data for New Jersey. The project addresses a practical access problem: behavioral health resources may exist, but finding plausible options quickly is difficult because public information is fragmented, inconsistently encoded, and often hard to search during time-sensitive care transitions.
 
-The current GitHub package centers on a processed extract from SAMHSA National Mental Health Directory 2024 facility directory material. The team cleaned and decoded facility-level service fields, filtered the processed artifact to New Jersey, and added K-Means care-bundle tier labels that summarize service patterns. The final committed review extract contains 213 New Jersey facility rows and 57 columns.
+The current GitHub package centers on a processed extract from SAMHSA National Mental Health Directory 2024 facility directory material. The team cleaned and decoded facility-level service fields, filtered the processed artifact to New Jersey, and added K-Means-derived care-bundle tier labels that summarize service patterns. The final committed review extract contains 213 New Jersey facility rows and 57 columns.
 
 The prototype should be interpreted carefully. It helps users narrow and inspect plausible facility options, but it does not confirm real-time appointment availability, insurance acceptance, capacity, clinical appropriateness, or quality. Human verification and professional judgment remain necessary before any referral or care-planning decision.
 
@@ -83,14 +83,16 @@ The modeling work combines transparent ranking ideas with unsupervised tiering. 
 
 The exploratory ranking approach combines a semantic similarity score with a rule-based score. Semantic similarity provides flexibility when users describe needs in natural language. Rule scoring keeps important structured fields visible, such as care modality, outpatient or residential wording, payer alignment, counseling services, and payment assistance. This mix is appropriate for a prototype because it is easier to explain than a black-box model trained without ground-truth referral outcomes.
 
-Facility tiering uses K-Means clustering on binarized ancillary and recovery-support service indicators. The resulting tier labels are care-bundle summaries. They should not be read as quality scores, provider rankings, or clinical recommendations.
+Facility tiering in the notebook workflow uses K-Means clustering on binarized ancillary and recovery-support service indicators. The resulting tier labels are care-bundle summaries. They should not be read as quality scores, provider rankings, or clinical recommendations.
+
+The committed Streamlit prototype is intentionally simpler than the full exploratory notebook. It does not rerun K-Means, KNN, or semantic embeddings at runtime. Instead, it loads the 213-row New Jersey extract, applies deterministic filters and keyword/payment/query match scoring, and displays the precomputed tier label as interpretation context.
 
 
 ## Results
 
 The final GitHub extract contains 213 New Jersey behavioral health facility records. All rows in the committed extract are New Jersey records, and the file includes both decoded facility attributes and derived K-Means tier labels. This gives readers a concrete artifact to inspect rather than a purely conceptual proposal.
 
-The Streamlit prototype uses the extract to filter and display facilities by care need, service setting, payment/funding signal, city, and tier. It also shows simple match signals so a user can see why a facility appeared in the results. The default filter path loads all 213 records, and narrower filters produce smaller review lists.
+The Streamlit prototype uses the extract to filter and display facilities by care need, service setting, payment/funding signal, city, and tier. It also shows simple match signals so a user can see why a facility appeared in the results. Those match signals are deterministic keyword and field matches, not live model predictions. The default filter path loads all 213 records, and narrower filters produce smaller review lists.
 
 The most important result is the integrated workflow: the team moved from scattered Drive files and exploratory notebooks toward a single reviewable repository that contains data documentation, notebooks, a GitHub-safe data extract, a prototype, responsible AI documentation, deployment notes, and a polished report draft.
 
@@ -128,7 +130,7 @@ The SAMHSA directory is a public snapshot. It may contain stale records, missing
 
 The current extract does not include validated NPPES, HRSA, payer, or quality-data integration. Those are reasonable future enrichment directions, but they should not be claimed as completed integrations unless transparent matching fields and quality checks are added.
 
-The prototype also has technical limits. It relies on simple filters and text matching, and the committed app does not perform live semantic embedding calls. The notebooks explore richer ranking ideas, but the review app favors simplicity and local reproducibility.
+The prototype also has technical limits. It relies on simple filters and text matching, and the committed app does not perform live semantic embedding calls, K-Means clustering, or KNN. The notebooks explore richer ranking ideas, but the review app favors simplicity and local reproducibility.
 
 
 ## Deployment Readiness

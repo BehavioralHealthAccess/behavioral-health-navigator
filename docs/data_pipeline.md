@@ -216,8 +216,10 @@ The prototype can combine:
 
 - simple filters for location, service fit, payment, and age group
 - source-confidence labels
-- K-Means tier labels
+- precomputed K-Means tier labels
 - responsible-use language that tells users to verify details directly
+
+The current Streamlit app does not train models at runtime. It loads the processed New Jersey extract, applies simple filter and keyword/payment/query scoring, and displays the tier label already present in the data.
 
 ## Data Quality Checks
 
