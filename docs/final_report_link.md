@@ -1,14 +1,13 @@
-# Final Report Link
+# Final Report Notes
 
-Current working report draft:
+Current report drafts:
 
-- Google Drive document: https://docs.google.com/document/d/1aUuMP8MsYjMD5R-L2QtOFB3krbYvulr3/edit
 - GitHub polished report draft: `docs/final_report.docx`
 - GitHub-readable report draft: `docs/final_report.md`
 
 ## Integration Notes
 
-The current Drive file is an Office-format document opened through Google Drive, not a native Google Doc. If connector-based editing is needed, convert it to native Google Docs or edit the `.docx` directly in Drive.
+The team's private Drive copy is an Office-format document opened through Google Drive, not a native Google Doc. If connector-based editing is needed, convert it to native Google Docs or edit the `.docx` directly in Drive. The public repository should point readers to the committed report files rather than direct Drive links.
 
 The GitHub report draft was prepared locally from the Drive report text plus the final integration artifacts. It fixes the advisor-name spelling and replaces generic Results/Interpretation language with project-specific language based on the 213-row New Jersey extract and five K-Means care-bundle tiers.
 

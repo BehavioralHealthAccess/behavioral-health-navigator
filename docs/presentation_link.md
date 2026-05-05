@@ -1,10 +1,6 @@
-# Presentation Link
+# Presentation Notes
 
-Shared team Drive folder:
-
-- https://drive.google.com/drive/folders/1VWmJMeLLMpH8CF5sDUlDqVhWcoipkert
-
-Known presentation materials are in the `Ppt` folder inside the shared Drive.
+Known presentation materials are in the team's shared Drive. The public GitHub repository does not include direct Drive links; share those privately with the team or reviewers only when needed.
 
 ## Presentation Storyline
 
