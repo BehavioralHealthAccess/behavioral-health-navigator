@@ -2,11 +2,11 @@
 
 This repository is the shared technical home for the AI Campus Team 3 final project.
 
-## Coach / Reviewer Start Here
+## Start Here
 
-If you are reviewing this project for another team or cohort, use this path:
+This repository is organized so a reader can move from project overview to working artifacts without needing the team's Slack or Google Drive context. A good path is:
 
-1. Read `docs/coach_review_guide.md` for the one-page navigation map.
+1. Read `docs/project_walkthrough.md` for the one-page project map.
 2. Read the polished report draft in `docs/final_report.md` or download `docs/final_report.docx`.
 3. Inspect the final GitHub-safe data extract: `data/processed/final_nj_facility_sample.csv`.
 4. Review the prototype code in `app/streamlit_app.py`.
@@ -19,7 +19,7 @@ streamlit run app/streamlit_app.py
 
 6. Check the responsible-use boundaries in `docs/responsible_ai_memo.md` and deployment notes in `docs/deployment_readiness.md`.
 
-This project is ready to review as a bounded classroom prototype once the repository is visible to reviewers. It is not a production healthcare system and does not verify real-time appointment availability, insurance acceptance, clinical appropriateness, or provider quality.
+This project is a bounded classroom prototype. It is not a production healthcare system and does not verify real-time appointment availability, insurance acceptance, clinical appropriateness, or provider quality.
 
 Final deliverables:
 
@@ -40,9 +40,9 @@ We built a behavioral health access navigator using public New Jersey behavioral
 
 This is a decision-support prototype, not a clinical authority or booking system.
 
-## Current Review Artifacts
+## Current Artifacts
 
-The final integration branch contains the core artifacts needed for coach and cohort review:
+The repository contains the core artifacts needed to understand, run, and evaluate the project:
 
 - `data/processed/final_nj_facility_sample.csv`: a GitHub-safe New Jersey extract with 213 facilities, decoded service fields, source-confidence language, and K-Means tier labels.
 - `notebooks/SAMHSA.ipynb`: the Drive-origin notebook that reads the SAMHSA National Mental Health Directory 2024 workbook and creates the cleaned service file.
@@ -50,7 +50,7 @@ The final integration branch contains the core artifacts needed for coach and co
 - `notebooks/final_facility_tier_model.ipynb`: a smaller classroom-friendly notebook using the committed demo file.
 - `app/streamlit_app.py`: a lightweight Streamlit prototype that runs from the committed New Jersey extract.
 - `docs/final_report.docx` and `docs/final_report.md`: polished final report draft prepared from the team's Drive report and final integration artifacts.
-- `docs/`: final documentation for reviewer navigation, pipeline, responsible AI, deployment readiness, source limits, report link, and presentation link.
+- `docs/`: final documentation for project navigation, pipeline, responsible AI, deployment readiness, source limits, report link, and presentation link.
 
 To run the local prototype:
 
@@ -130,7 +130,7 @@ Treat those files as the source of truth for scope, terminology, data rules, and
 
 Codex can help organize, code, clean, draft, and document. Every team member still needs to understand and defend what Codex produces. If you cannot explain a notebook cell, report paragraph, or model choice in plain language, revise it.
 
-## Coach Standard
+## Project Standard
 
 Prefer simple, working, defensible artifacts over ambitious fragile features.
 

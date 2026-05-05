@@ -1,8 +1,8 @@
-# Coach Review Guide
+# Project Walkthrough
 
-This guide is for coaches or cohort reviewers who receive a link to this repository and need to understand the project quickly.
+This guide is for anyone opening the repository who wants to understand the project quickly.
 
-## Fast Review Path
+## Fast Reading Path
 
 1. Start with this guide and the root `README.md`.
 2. Read `docs/final_report.md` or download `docs/final_report.docx`.
@@ -36,9 +36,9 @@ The prototype does not:
 
 ## Key Artifacts
 
-| Review Question | Artifact |
+| Reader Question | Artifact |
 | --- | --- |
-| What is the project and how should I review it? | `README.md`, `docs/coach_review_guide.md` |
+| What is the project and how should I read it? | `README.md`, `docs/project_walkthrough.md` |
 | What is the polished report draft? | `docs/final_report.md`, `docs/final_report.docx` |
 | What data did the team commit to GitHub? | `data/processed/final_nj_facility_sample.csv` |
 | Where is the prototype? | `app/streamlit_app.py` |
@@ -47,7 +47,7 @@ The prototype does not:
 | What are the responsible AI boundaries? | `docs/responsible_ai_memo.md` |
 | Is this deployable? | `docs/deployment_readiness.md` |
 
-## Suggested Review Questions
+## Useful Questions To Ask
 
 - Can the team explain why SAMHSA National Mental Health Directory 2024 is the completed primary source?
 - Can the team explain K-Means tiering without calling it KNN?
@@ -56,8 +56,8 @@ The prototype does not:
 - Can the team explain why large raw files are not committed to GitHub?
 - Can the team identify at least three things the prototype cannot safely claim?
 
-## Current Readiness Judgment
+## Current Readiness
 
-Ready for coach review: yes, once this branch is merged and repository access is resolved.
+Ready as a classroom prototype: yes.
 
 Ready for production deployment: no. The prototype needs formal data-refresh logic, user testing, accessibility review, privacy/security review, and live verification sources before it could be considered operational.

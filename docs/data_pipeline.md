@@ -166,7 +166,7 @@ Source confidence is not the same as clinical confidence. It only describes data
 
 The processed file should be intentionally small and reviewable.
 
-Current final review path:
+Current final processed path:
 
 ```text
 data/processed/final_nj_facility_sample.csv

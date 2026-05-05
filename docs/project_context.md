@@ -151,7 +151,7 @@ The project should explain:
 - why human judgment remains necessary
 - how AI assistants were used responsibly during the project
 
-## Coach Standard
+## Project Standard
 
 Every output should be explainable in plain language by the team.
 

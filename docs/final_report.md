@@ -1,6 +1,6 @@
 # Behavioral Health Access Navigator
 
-**Final Project Report Draft for Coach and Cohort Review**
+**Final Project Report Draft**
 
 **Team Members:** Caitlin Cohen, Sarthak Chandervanshi, Sangeetha Maheshwari, Joseph Thorpe
 **Faculty Advisor:** Dr. Andrei Nikiforov
@@ -8,12 +8,12 @@
 
 > This report is a polished review draft prepared from the team report document and the final GitHub integration artifacts.
 
-## Reviewer Artifact Map
+## Reader Artifact Map
 
 | Review Need | Artifact | What To Look For |
 | --- | --- | --- |
 | Start here | `README.md` | Project scope, review sequence, and run instructions. |
-| Coach guide | `docs/coach_review_guide.md` | One-page walkthrough for reviewers. |
+| Project walkthrough | `docs/project_walkthrough.md` | One-page map of the repository. |
 | Report | `docs/final_report.docx and docs/final_report.md` | Polished report draft and GitHub-readable text version. |
 | Prototype | `app/streamlit_app.py` | Streamlit app using the committed New Jersey extract. |
 | Final data extract | `data/processed/final_nj_facility_sample.csv` | 213 New Jersey facility records with decoded service fields and K-Means tiers. |
@@ -47,7 +47,7 @@ Access to behavioral health care is constrained not only by supply, but also by 
 
 The intended users are not patients acting alone. The primary users are care coordinators, social workers, discharge planners, community health workers, and related professionals who need a faster way to review public facility information. The project aims to support these users by making facility records easier to filter, rank, and interpret while preserving human responsibility for final judgment.
 
-The project also has a classroom and reviewer audience. Coaches and other AI Campus teams should be able to open the GitHub repository, understand the source data and model boundaries, run or inspect a small prototype, and see exactly where the larger raw files remain outside GitHub.
+The project also has a broader classroom and public-facing audience. A reader should be able to open the GitHub repository, understand the source data and model boundaries, run or inspect a small prototype, and see exactly where the larger raw files remain outside GitHub.
 
 
 ## Decision Supported
@@ -65,7 +65,7 @@ The primary completed source is SAMHSA National Mental Health Directory 2024 fac
 
 The processed New Jersey extract committed to GitHub is data/processed/final_nj_facility_sample.csv. It contains 213 New Jersey records, 57 columns, decoded service descriptions, payment and funding signals, recovery support fields, age-group fields, ancillary services, original cluster labels, plain-language tier labels, and source-confidence language.
 
-The raw workbook and large intermediate files should remain in the team Google Drive. GitHub is used for code, notebooks, documentation, small processed review data, and reproducibility instructions. This protects the repository from becoming a dumping ground for large raw data while still giving reviewers a runnable project package.
+The raw workbook and large intermediate files should remain in the team Google Drive. GitHub is used for code, notebooks, documentation, small processed project data, and reproducibility instructions. This protects the repository from becoming a dumping ground for large raw data while still giving readers a runnable project package.
 
 
 ## Data Processing Workflow
@@ -74,7 +74,7 @@ The Drive-origin notebook notebooks/SAMHSA.ipynb documents the cleaning path. It
 
 The resulting columns describe type of care, service setting, facility type, pharmacotherapies, treatment approaches, emergency services, facility operation, payment/funding, special programs, recovery support, education and counseling, accepted age groups, language services, and ancillary services. For modeling, ancillary and recovery-support mentions were converted into binary multi-label indicators that can be compared across facilities.
 
-The current final extract should be viewed as a review-ready processed artifact. It is enough for a prototype demonstration and coach review, but it is not a fully automated production data pipeline. A future version should include a reproducible command-line script that rebuilds the GitHub extract from the Drive workbook and records source file dates, checksums, and row counts.
+The current final extract should be viewed as a reader-ready processed artifact. It is enough for a prototype demonstration, but it is not a fully automated production data pipeline. A future version should include a reproducible command-line script that rebuilds the GitHub extract from the Drive workbook and records source file dates, checksums, and row counts.
 
 
 ## Modeling and Ranking Approach
@@ -88,7 +88,7 @@ Facility tiering uses K-Means clustering on binarized ancillary and recovery-sup
 
 ## Results
 
-The final GitHub review extract contains 213 New Jersey behavioral health facility records. All rows in the committed extract are New Jersey records, and the file includes both decoded facility attributes and derived K-Means tier labels. This gives reviewers a concrete artifact to inspect rather than a purely conceptual proposal.
+The final GitHub extract contains 213 New Jersey behavioral health facility records. All rows in the committed extract are New Jersey records, and the file includes both decoded facility attributes and derived K-Means tier labels. This gives readers a concrete artifact to inspect rather than a purely conceptual proposal.
 
 The Streamlit prototype uses the extract to filter and display facilities by care need, service setting, payment/funding signal, city, and tier. It also shows simple match signals so a user can see why a facility appeared in the results. The default filter path loads all 213 records, and narrower filters produce smaller review lists.
 
@@ -108,7 +108,7 @@ The strongest interpretation is therefore modest and useful: public facility dat
 
 The prototype lives in app/streamlit_app.py and runs from the committed New Jersey processed extract. It can be launched locally with pip install -r requirements.txt followed by streamlit run app/streamlit_app.py.
 
-The sidebar allows a reviewer to select care need, payment or funding signal, service setting, care-bundle tier, city, and a free-text search query. The main view displays facility cards with facility name, location, type of care, service setting, matched signals, payment/funding text, ancillary services, phone where available, and source-confidence language.
+The sidebar allows a user to select care need, payment or funding signal, service setting, care-bundle tier, city, and a free-text search query. The main view displays facility cards with facility name, location, type of care, service setting, matched signals, payment/funding text, ancillary services, phone where available, and source-confidence language.
 
 This lightweight prototype runs without API keys, external services, or raw Drive files, making it suitable for classroom review and final presentation.
 
@@ -133,9 +133,9 @@ The prototype also has technical limits. It relies on simple filters and text ma
 
 ## Deployment Readiness
 
-The project is ready for coach review as a prototype package once the pull request is merged and the repository is made accessible. It is not ready for production healthcare deployment.
+The project is ready to read and inspect as a prototype package once the repository is made accessible. It is not ready for production healthcare deployment.
 
-Before sharing with coaches, the repository should be public or coaches should be added with explicit access. The README should be the first stop, followed by the coach review guide, final report, app, notebooks, data documentation, and responsible AI memo.
+Before sharing broadly, the repository should be public or intended readers should be added with explicit access. The README should be the first stop, followed by the project walkthrough, final report, app, notebooks, data documentation, and responsible AI memo.
 
 A production pathway would require a formal data-refresh workflow, accessibility testing, security and privacy review, user testing with navigators, clearer source licensing documentation, and a real plan for data currency and operational verification.
 
@@ -151,6 +151,6 @@ Future modeling could incorporate validated feedback from navigators, successful
 
 ## Conclusion
 
-The Behavioral Health Access Navigator turns scattered public facility information into a more usable review workflow for New Jersey behavioral health navigation. The final GitHub package gives reviewers a coherent path through the project: source documentation, processed data, notebooks, prototype, responsible AI boundaries, deployment readiness, and a polished report draft.
+The Behavioral Health Access Navigator turns scattered public facility information into a more usable review workflow for New Jersey behavioral health navigation. The final GitHub package gives readers a coherent path through the project: source documentation, processed data, notebooks, prototype, responsible AI boundaries, deployment readiness, and a polished report draft.
 
 The project is strongest when described modestly: it reduces uncertainty for human navigators by organizing public data and surfacing plausible facility options. It does not replace professional judgment, verify real-time access, or make clinical decisions. That bounded framing makes the work both more honest and more useful.

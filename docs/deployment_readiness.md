@@ -6,7 +6,7 @@ The repository is ready for final review as a prototype, not as a production hea
 
 Working review artifacts:
 
-- Coach review guide: `docs/coach_review_guide.md`
+- Project walkthrough: `docs/project_walkthrough.md`
 - Polished report draft: `docs/final_report.docx`
 - GitHub-readable report draft: `docs/final_report.md`
 - GitHub-safe processed New Jersey extract: `data/processed/final_nj_facility_sample.csv`
@@ -47,7 +47,7 @@ The app runs from the committed New Jersey processed extract and does not requir
 
 Before final submission, confirm:
 
-- the GitHub repository is public or otherwise shared with reviewers
+- the GitHub repository is public or otherwise shared with intended readers
 - no raw large files, secrets, `.env` files, API keys, or private credentials are committed
 - the notebooks have outputs stripped or are small enough for GitHub review
 - the report accurately describes SAMHSA as the completed primary source
