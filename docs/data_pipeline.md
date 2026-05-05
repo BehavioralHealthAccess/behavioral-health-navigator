@@ -7,7 +7,7 @@ This document explains the intended data flow for the New Jersey Behavioral Heal
 Create a small, explainable processed facility dataset that supports:
 
 - service-fit filtering
-- location and county context
+- city, ZIP, and state context
 - payment or insurance signals where available
 - source-confidence labels
 - K-Means care-bundle or service-complexity tiering
@@ -57,16 +57,15 @@ For each raw source, record this in a shared manifest or team notes:
 - known update cadence if available
 - person who downloaded or prepared it
 
-Minimum expected sources:
+Final integrated source:
 
-- SAMHSA N-SUMHSS or facility data
-- CMS NPPES provider registry
-- HRSA Mental Health HPSA data
+- SAMHSA National Mental Health Directory 2024 workbook, especially `Facilities List` and service-code reference material.
 
-Optional sources:
+Potential future enrichment sources:
 
-- CMS Provider Data Catalog or Care Compare data
-- payer directory or quality data, only if feasible and explainable
+- CMS NPPES provider registry for provider identity, specialty, address, and NPI context.
+- HRSA Mental Health HPSA data for geographic shortage context.
+- CMS Provider Data Catalog, payer directory, or quality data only if feasible and explainable.
 
 ## Step 2: SAMHSA-Centered Cleaning
 
@@ -74,12 +73,12 @@ SAMHSA should be the practical center of the project because it is closest to th
 
 Recommended cleaning steps:
 
-1. Load the selected SAMHSA public-use or facility file outside GitHub.
+1. Load the SAMHSA National Mental Health Directory 2024 workbook outside GitHub.
 2. Filter to New Jersey records.
 3. Keep facility identity and location fields.
 4. Decode service-related fields using the source codebook.
 5. Convert multi-select service variables into readable semicolon-separated fields.
-6. Standardize county, city, ZIP, latitude, and longitude fields.
+6. Standardize city, ZIP, service, payment, and age-group fields available in the source.
 7. Remove obvious duplicate facility rows only when the rule is explainable.
 8. Preserve enough source identifiers to trace records back to the raw file outside GitHub.
 
@@ -94,9 +93,9 @@ Key cleaned feature groups:
 - age groups or populations served
 - ancillary services
 
-## Step 3: NPPES Enrichment
+## Step 3: Future NPPES Enrichment
 
-NPPES can support identity, NPI, specialty, and address context. It should not become the core facility source unless the team has strong matching logic.
+NPPES can support identity, NPI, specialty, and address context in future work. It should not be described as a completed integration unless the team has strong matching logic and committed NPPES-derived fields.
 
 Possible matching fields:
 
@@ -117,9 +116,9 @@ Recommended match labels:
 
 Use `matched_probable` or `ambiguous_multiple_matches` carefully. If a match cannot be explained in plain language, do not use it for a strong source-confidence claim.
 
-## Step 4: HRSA Context
+## Step 4: Future HRSA Context
 
-HRSA Mental Health HPSA data should be used as geographic access context.
+HRSA Mental Health HPSA data could be used as geographic access context in future work.
 
 Possible matching levels:
 
@@ -127,7 +126,7 @@ Possible matching levels:
 - ZIP code if available and defensible
 - geospatial boundary match if the team has latitude/longitude and a reproducible GIS workflow
 
-Recommended fields to carry into the processed file:
+If added later, recommended fields to carry into the processed file include:
 
 - mental health HPSA status
 - HPSA score
@@ -153,7 +152,7 @@ If the answers are unclear, document the source as future work instead of adding
 
 The prototype should communicate uncertainty. A simple confidence field is enough for the final project if it is easy to explain.
 
-Example labels:
+Example labels for a future multi-source version:
 
 - `SAMHSA only`: facility and services come from SAMHSA-centered processing only.
 - `SAMHSA + NPPES`: facility identity or address has a defensible NPPES match.
@@ -163,36 +162,37 @@ Example labels:
 
 Source confidence is not the same as clinical confidence. It only describes data corroboration.
 
-## Step 7: Processed Demo Export
+## Step 7: Processed Review Export
 
 The processed file should be intentionally small and reviewable.
 
-Recommended output path:
+Current final review path:
 
 ```text
-data/processed/facility_service_demo.csv
+data/processed/final_nj_facility_sample.csv
 ```
 
-Recommended output fields:
+Current review fields include:
 
 ```text
-facility_id
 facility_name
-county
 city
 state
 zip
-latitude
-longitude
+phone
 service_setting
-care_types
+type_of_care
+facility_type
 treatment_approaches
 recovery_support
 emergency_services
-payment_options
-age_groups
+payment_funding
+age_groups_accepted
 ancillary_services
+cluster_label
+tier_name
 source_confidence
+data_scope
 ```
 
 Optional enrichment fields:
@@ -210,7 +210,7 @@ Keep full raw records and large intermediate files out of GitHub.
 
 ## Step 8: Model and Prototype Use
 
-The K-Means notebook should use the processed file to engineer service features and assign care-bundle tiers. The tier label should summarize service complexity, not quality.
+The K-Means notebook should use the processed file to engineer service features and assign care-bundle tiers. The tier label should summarize service patterns and service complexity, not quality.
 
 The prototype can combine:
 
@@ -225,8 +225,7 @@ Before using a processed file in the final prototype, check:
 
 - record count
 - duplicate facility names and addresses
-- missing county/city/ZIP values
-- missing latitude/longitude values
+- missing city/ZIP values
 - unexpected non-New Jersey records
 - service fields that are still coded instead of decoded
 - payment fields with unclear meanings

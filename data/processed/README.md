@@ -2,6 +2,33 @@
 
 This folder stores small processed/demo files only. Do not place full raw SAMHSA, NPPES, HRSA, payer, ZIP, database, or cache files here.
 
+## `final_nj_facility_sample.csv`
+
+- Rows: 213
+- Columns: 57
+- Source: New Jersey subset of the team's processed `clustered_dataframe_final.csv` artifact from Google Drive.
+- Primary source lineage: SAMHSA National Mental Health Directory 2024 workbook, especially the `Facilities List` worksheet and decoded service-code fields.
+- Purpose: final GitHub-safe data extract for the Streamlit prototype, report walkthrough, and coach review.
+- Scope: New Jersey behavioral health facilities only.
+- Important note: this is processed public facility data. It is not a real-time appointment, capacity, quality, or insurance-eligibility feed.
+
+Tier distribution in this extract:
+
+| Tier | Rows |
+| --- | ---: |
+| Essential Support Services | 69 |
+| Structured Clinical & Family Support | 56 |
+| Peer & Community-Led Services | 53 |
+| Specialized Chronic Care | 19 |
+| Comprehensive Support Hub | 16 |
+
+The extract keeps the decoded facility service fields used by the team notebooks, including service setting, treatment approaches, emergency services, payment/funding signals, special programs, recovery support, age groups, ancillary services, original `cluster_label`, and plain-language `tier_name`.
+
+Two review helper fields were added during final integration:
+
+- `source_confidence`: explains that the row comes from SAMHSA National Mental Health Directory 2024 processing with decoded services and derived K-Means tier.
+- `data_scope`: marks the file as a New Jersey processed extract for final prototype review.
+
 ## `facility_service_demo.csv`
 
 - Rows: 15
@@ -41,7 +68,7 @@ When the notebook runs, it writes `facility_tiers_demo.csv` with the added `mode
 
 ## Full Data Rule
 
-The full `clustered_dataframe_final.csv` file should stay outside GitHub unless the team explicitly decides it is small, processed, non-sensitive, and appropriate to commit. For now, GitHub keeps only this small sample so the notebook is reproducible without uploading the larger national processed file.
+The full national `clustered_dataframe_final.csv` file should stay outside GitHub unless the team explicitly decides it is small, processed, non-sensitive, and appropriate to commit. For final review, GitHub keeps the New Jersey processed extract and the small notebook demo file.
 
 ## Replacement Path
 
