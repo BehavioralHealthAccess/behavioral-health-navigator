@@ -29,14 +29,11 @@ The honest value of the project is not that it knows everything. The value is th
 
 ## Data Sources
 
-Known or expected sources include:
+The final integrated artifact is centered on one defensible public source:
 
-- SAMHSA facility data for behavioral health facility location, services, and characteristics
-- NPPES provider registry for provider identity, specialty, address, and NPI information
-- HRSA mental health shortage area data for geographic shortage context
-- Optional payer directory or quality data if available and feasible
+- SAMHSA National Mental Health Directory 2024 facility directory material, especially the `Facilities List` worksheet and service-code reference fields.
 
-The current practical center of the project is the cleaned and decoded SAMHSA-centered facility dataset, enriched where possible with NPPES and HRSA context.
+The current practical center of the project is the cleaned and decoded SAMHSA-centered facility dataset. NPPES, HRSA, payer, and quality data remain useful future enrichment paths, but they should not be described as completed production integrations unless the team can show the exact matching logic and resulting fields.
 
 ## Data Rule
 
@@ -64,7 +61,7 @@ If large raw data is needed, document where it lives, how it was obtained, and h
 
 ## Current Technical Direction
 
-Use cleaned and decoded facility data to support a behavioral health navigator prototype.
+Use cleaned and decoded SAMHSA National Mental Health Directory facility data to support a behavioral health navigator prototype.
 
 Modeling direction:
 
@@ -76,9 +73,9 @@ Modeling direction:
 
 Navigator direction:
 
-- Use simple filtering or rule-based ranking for care need, location, payment/insurance, distance/radius, and service fit.
+- Use simple filtering or rule-based ranking for care need, location, payment/insurance, and service fit.
 - Add the K-Means tier label as an interpretation layer.
-- Add confidence or source labels where available to communicate uncertainty and corroboration.
+- Add source-confidence labels where available to communicate provenance and uncertainty.
 
 ## Terminology Correction
 
