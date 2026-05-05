@@ -1,10 +1,10 @@
 # New Jersey Behavioral Health Access Navigator
 
-This repository is the shared technical home for the AI Campus Team 3 final project.
+This repository contains the final project package for AI Campus Team 3's New Jersey Behavioral Health Access Navigator.
 
 ## Start Here
 
-This repository is organized so a reader can move from project overview to working artifacts without needing the team's Slack or Google Drive context. A good path is:
+This repository is organized so a reader can move from project overview to working artifacts without needing outside context. A good path is:
 
 1. Read `docs/project_walkthrough.md` for the one-page project map.
 2. Read the polished report draft in `docs/final_report.md` or download `docs/final_report.docx`.
@@ -21,11 +21,11 @@ streamlit run app/streamlit_app.py
 
 This project is a bounded classroom prototype. It is not a production healthcare system and does not verify real-time appointment availability, insurance acceptance, clinical appropriateness, or provider quality.
 
-Final deliverables:
+Project outputs:
 
-- GitHub codebook/codebase
 - 13-15 page project report
-- Streamlit or similar prototype
+- GitHub code, notebooks, and data documentation
+- Streamlit prototype
 - Final cohort presentation on May 13, 2026
 
 ## Project Purpose
@@ -52,66 +52,46 @@ The repository contains the core artifacts needed to understand, run, and evalua
 - `docs/final_report.docx` and `docs/final_report.md`: polished final report draft prepared from the team's Drive report and final integration artifacts.
 - `docs/`: final documentation for project navigation, pipeline, responsible AI, deployment readiness, source limits, report link, and presentation link.
 
-To run the local prototype:
-
-```bash
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
-```
-
 ## Repository Structure
-
-Use this structure as the shared working layout:
 
 ```text
 behavioral-health-navigator/
   README.md
-  notebooks/
-    # exploration, data/model notebooks, plots
+  app/
+    streamlit_app.py
   data/
     README.md
-    samples/
-      # small sample/demo data only
     processed/
-      # small processed demo files only
-  app/
-    # Streamlit prototype
+      final_nj_facility_sample.csv
+  notebooks/
+    # exploration, data/model notebooks, plots
   docs/
+    project_walkthrough.md
+    final_report.md
+    final_report.docx
     project_context.md
     responsible_ai_memo.md
     deployment_readiness.md
     source_agreement_evaluation.md
 ```
 
-## Data Rule
+## Data Included
 
-Do not upload raw GB-scale data files to GitHub.
+The repository includes a GitHub-safe processed New Jersey extract:
 
-GitHub should contain code, notebooks, documentation, small sample/demo data, and reproducibility instructions. Raw files should stay in the shared Drive or be referenced by official source links and download instructions.
+```text
+data/processed/final_nj_facility_sample.csv
+```
 
-Good to commit:
+This file contains 213 New Jersey facility records derived from the team's SAMHSA National Mental Health Directory 2024 processing workflow. It includes decoded service fields, payment/funding signals, ancillary-service fields, source-confidence language, and K-Means care-bundle tier labels.
 
-- notebooks
-- Python scripts
-- Streamlit app files
-- documentation
-- small sample/demo CSV files
-- screenshots and plots needed for the report
+The full raw workbook and larger intermediate files are not included in this repository. See `data/README.md` and `docs/data_pipeline.md` for source details and reproducibility notes.
 
-Do not commit:
+## Modeling Summary
 
-- full NPPES monthly raw files
-- large raw SAMHSA, HRSA, workbook, or archive files
-- large ZIP archives
-- local databases
-- cache folders
-- files containing secrets or API keys
+The project uses K-Means clustering, not KNN, for facility tiering.
 
-## Technical Direction
-
-Use K-Means clustering, not KNN, for the facility tiering model.
-
-KNN is a supervised nearest-neighbor method. K-Means is the unsupervised clustering method that groups facilities into care-bundle or service-complexity tiers.
+K-Means is an unsupervised method that groups facilities by patterns in service-related fields. The tier labels summarize service bundles and service complexity. They are not quality scores, referral decisions, or clinical recommendations.
 
 The navigator can combine:
 
@@ -119,28 +99,15 @@ The navigator can combine:
 - source-confidence labels that describe provenance and data limitations
 - K-Means tier labels that summarize facility service complexity
 
-## Codex Instructions
+## Responsible Use
 
-Before starting any role-specific task, ask Codex to read:
+This project should be read as a navigation prototype. It can help a human user narrow a list of plausible facilities, but it cannot verify:
 
-- `README.md`
-- `docs/project_context.md`
+- real-time appointment availability
+- whether a facility is accepting new clients
+- insurance acceptance for a specific person
+- clinical appropriateness
+- provider quality
+- current capacity or wait times
 
-Treat those files as the source of truth for scope, terminology, data rules, and final deliverables.
-
-Codex can help organize, code, clean, draft, and document. Every team member still needs to understand and defend what Codex produces. If you cannot explain a notebook cell, report paragraph, or model choice in plain language, revise it.
-
-## Project Standard
-
-Prefer simple, working, defensible artifacts over ambitious fragile features.
-
-The final submission should make clear:
-
-- what problem the project addresses
-- what public data was used
-- how the data was cleaned and processed
-- what the model does
-- what the model does not do
-- how humans should interpret or override outputs
-- where the prototype fails or remains incomplete
-- what the team would improve next
+Human verification and professional judgment remain necessary before any referral or care-planning decision.

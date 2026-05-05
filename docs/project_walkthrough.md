@@ -40,21 +40,21 @@ The prototype does not:
 | --- | --- |
 | What is the project and how should I read it? | `README.md`, `docs/project_walkthrough.md` |
 | What is the polished report draft? | `docs/final_report.md`, `docs/final_report.docx` |
-| What data did the team commit to GitHub? | `data/processed/final_nj_facility_sample.csv` |
+| What data is included in GitHub? | `data/processed/final_nj_facility_sample.csv` |
 | Where is the prototype? | `app/streamlit_app.py` |
 | How was the source data processed? | `notebooks/SAMHSA.ipynb`, `data/README.md`, `docs/data_pipeline.md` |
-| What modeling work did the team explore? | `notebooks/Modeling.ipynb`, `notebooks/final_facility_tier_model.ipynb` |
+| What modeling work is included? | `notebooks/Modeling.ipynb`, `notebooks/final_facility_tier_model.ipynb` |
 | What are the responsible AI boundaries? | `docs/responsible_ai_memo.md` |
 | Is this deployable? | `docs/deployment_readiness.md` |
 
-## Useful Questions To Ask
+## Useful Questions
 
-- Can the team explain why SAMHSA National Mental Health Directory 2024 is the completed primary source?
-- Can the team explain K-Means tiering without calling it KNN?
-- Can the team explain what the tier labels do and do not mean?
-- Can the team show the app running from the committed 213-row extract?
-- Can the team explain why large raw files are not committed to GitHub?
-- Can the team identify at least three things the prototype cannot safely claim?
+- Does the documentation explain why SAMHSA National Mental Health Directory 2024 is the completed primary source?
+- Does the project distinguish K-Means tiering from KNN?
+- Does the report explain what the tier labels do and do not mean?
+- Does the app run from the committed 213-row extract?
+- Does the data documentation explain why large raw files are not committed to GitHub?
+- Does the prototype clearly identify what it cannot safely claim?
 
 ## Current Readiness
 
