@@ -6,6 +6,9 @@ The repository is ready for final review as a prototype, not as a production hea
 
 Working review artifacts:
 
+- Coach review guide: `docs/coach_review_guide.md`
+- Polished report draft: `docs/final_report.docx`
+- GitHub-readable report draft: `docs/final_report.md`
 - GitHub-safe processed New Jersey extract: `data/processed/final_nj_facility_sample.csv`
 - Streamlit prototype: `app/streamlit_app.py`
 - Source cleaning notebook: `notebooks/SAMHSA.ipynb`

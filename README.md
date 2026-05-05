@@ -2,6 +2,25 @@
 
 This repository is the shared technical home for the AI Campus Team 3 final project.
 
+## Coach / Reviewer Start Here
+
+If you are reviewing this project for another team or cohort, use this path:
+
+1. Read `docs/coach_review_guide.md` for the one-page navigation map.
+2. Read the polished report draft in `docs/final_report.md` or download `docs/final_report.docx`.
+3. Inspect the final GitHub-safe data extract: `data/processed/final_nj_facility_sample.csv`.
+4. Review the prototype code in `app/streamlit_app.py`.
+5. Run the prototype locally if desired:
+
+```bash
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+6. Check the responsible-use boundaries in `docs/responsible_ai_memo.md` and deployment notes in `docs/deployment_readiness.md`.
+
+This project is ready to review as a bounded classroom prototype once the repository is visible to reviewers. It is not a production healthcare system and does not verify real-time appointment availability, insurance acceptance, clinical appropriateness, or provider quality.
+
 Final deliverables:
 
 - GitHub codebook/codebase
@@ -30,7 +49,8 @@ The final integration branch contains the core artifacts needed for coach and co
 - `notebooks/Modeling.ipynb`: the Drive-origin notebook that explores filtering/ranking, embeddings, and tier generation.
 - `notebooks/final_facility_tier_model.ipynb`: a smaller classroom-friendly notebook using the committed demo file.
 - `app/streamlit_app.py`: a lightweight Streamlit prototype that runs from the committed New Jersey extract.
-- `docs/`: final documentation for pipeline, responsible AI, deployment readiness, source limits, report link, and presentation link.
+- `docs/final_report.docx` and `docs/final_report.md`: polished final report draft prepared from the team's Drive report and final integration artifacts.
+- `docs/`: final documentation for reviewer navigation, pipeline, responsible AI, deployment readiness, source limits, report link, and presentation link.
 
 To run the local prototype:
 
