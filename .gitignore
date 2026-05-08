@@ -39,6 +39,10 @@ data/cache/
 *.joblib
 *.feather
 
+# Final submission exports
+# The team reviews the editable DOCX in GitHub/Drive and exports the PDF manually before submission.
+docs/final_report.pdf
+
 # App/runtime artifacts
 .streamlit/secrets.toml
 logs/

@@ -196,7 +196,7 @@ The repository contains several types of artifacts because the project has to be
 | --- | --- | --- |
 | Repository README | `README.md` | What is this project, how do I start, and what is included? |
 | Project walkthrough | `docs/project_walkthrough.md` | What should I click first and how do the parts fit together? |
-| Final report | `docs/final_report.docx`, `docs/final_report.pdf`, `docs/final_report.md` | What did the team build and how should it be interpreted? |
+| Final report | `docs/final_report.docx`, `docs/final_report.md` | What did the team build and how should it be interpreted? The team should export the final PDF manually after reviewing the DOCX. |
 | Data README | `data/README.md` | What data is included, what is excluded, and why? |
 | Data pipeline memo | `docs/data_pipeline.md` | How does the raw source become the GitHub-safe extract? |
 | Processed extract | `data/processed/final_nj_facility_sample.csv` | What concrete records power the app and final analysis? |
@@ -297,7 +297,7 @@ A production pathway would require a formal data-refresh workflow, accessibility
 
 ## Submission Readiness
 
-The final submission package should include the public GitHub link, this report as a PDF, and the final presentation slides. The GitHub link is the best single entry point because it connects readers to the README, notebooks, data extract, app, documentation, report files, and presentation draft.
+The final submission package should include the public GitHub link, this report exported manually as a PDF after team review, and the final presentation slides. The GitHub link is the best single entry point because it connects readers to the README, notebooks, data extract, app, documentation, report files, and presentation draft.
 
 Before submission, the team should click through the repository as a reader. They should confirm that the README makes sense, that the report opens, that the processed CSV is visible, that the notebooks are present, and that the slides identify where screenshots should be inserted. If a team member does not understand a notebook, they can copy sections into ChatGPT and ask for a plain-language explanation, then return to the repository with a clearer map.
 
@@ -321,7 +321,7 @@ The final project should be considered ready for submission when the following c
 | --- | --- | --- |
 | Public repository is accessible | Complete | The repository has been made public for review. |
 | README provides a reader path | Complete | The README gives a start-here sequence and explains the major folders. |
-| Final report is available as PDF | Complete | The report is stored in `docs/final_report.pdf`. |
+| Final report is ready for PDF export | Complete | The editable report is stored in `docs/final_report.docx`; the team should export the submission PDF manually after review. |
 | Slides are available | Draft complete | The presentation draft includes screenshot-needed boxes for the team to replace. |
 | Processed data is GitHub-safe | Complete | The committed extract has 213 NJ records and avoids raw GB-scale data. |
 | App can run without API keys | Complete | The Streamlit app loads the committed extract and uses local deterministic logic. |

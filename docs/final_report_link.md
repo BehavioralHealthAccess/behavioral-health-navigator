@@ -2,9 +2,9 @@
 
 Current report drafts:
 
-- Submission PDF: `docs/final_report.pdf`
 - GitHub polished report draft: `docs/final_report.docx`
 - GitHub-readable report draft: `docs/final_report.md`
+- Submission PDF: export manually from the reviewed DOCX before sending final materials.
 
 ## Integration Notes
 
