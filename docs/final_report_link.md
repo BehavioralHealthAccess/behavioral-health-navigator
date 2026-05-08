@@ -2,6 +2,7 @@
 
 Current report drafts:
 
+- Submission PDF: `docs/final_report.pdf`
 - GitHub polished report draft: `docs/final_report.docx`
 - GitHub-readable report draft: `docs/final_report.md`
 
@@ -9,7 +10,7 @@ Current report drafts:
 
 The team's private Drive copy is an Office-format document opened through Google Drive, not a native Google Doc. If connector-based editing is needed, convert it to native Google Docs or edit the `.docx` directly in Drive. The public repository should point readers to the committed report files rather than direct Drive links.
 
-The GitHub report draft was prepared locally from the Drive report text plus the final integration artifacts. It fixes the advisor-name spelling and replaces generic Results/Interpretation language with project-specific language based on the 213-row New Jersey extract and five K-Means care-bundle tiers.
+The GitHub report was prepared locally from the Drive report text plus the final integration artifacts. It fixes the advisor-name spelling, expands the requirements and artifact alignment, and replaces generic Results/Interpretation language with project-specific language based on the 213-row New Jersey extract and five K-Means care-bundle tiers.
 
 The final report should align with this repository's current data story:
 

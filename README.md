@@ -7,7 +7,7 @@ This repository contains the final project package for AI Campus Team 3's New Je
 This repository is organized so a reader can move from project overview to working artifacts without needing outside context. A good path is:
 
 1. Read `docs/project_walkthrough.md` for the one-page project map.
-2. Read the polished report draft in `docs/final_report.md` or download `docs/final_report.docx`.
+2. Read the polished report draft in `docs/final_report.md` or download `docs/final_report.pdf` / `docs/final_report.docx`.
 3. Inspect the final GitHub-safe data extract: `data/processed/final_nj_facility_sample.csv`.
 4. Review the prototype code in `app/streamlit_app.py`.
 5. Run the prototype locally if desired:
@@ -49,7 +49,7 @@ The repository contains the core artifacts needed to understand, run, and evalua
 - `notebooks/Modeling.ipynb`: the Drive-origin notebook that explores filtering/ranking, embeddings, and tier generation.
 - `notebooks/final_facility_tier_model.ipynb`: a smaller classroom-friendly notebook using the committed demo file.
 - `app/streamlit_app.py`: a lightweight Streamlit prototype that runs from the committed New Jersey extract.
-- `docs/final_report.docx` and `docs/final_report.md`: polished final report draft prepared from the team's Drive report and final integration artifacts.
+- `docs/final_report.pdf`, `docs/final_report.docx`, and `docs/final_report.md`: polished final report prepared from the team's Drive report and final integration artifacts.
 - `docs/`: final documentation for project navigation, pipeline, responsible AI, deployment readiness, source limits, report link, and presentation link.
 
 ## Repository Structure
@@ -69,6 +69,7 @@ behavioral-health-navigator/
     project_walkthrough.md
     final_report.md
     final_report.docx
+    final_report.pdf
     project_context.md
     responsible_ai_memo.md
     deployment_readiness.md
